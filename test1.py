@@ -5,10 +5,6 @@ st.write('The current color is', color)
 
 st.balloons()
 
-[theme]
-base="light"
-[theme]
-base="dark"
-primaryColor="purple"
-[theme]
-font="serif"
+image = Image.open('image.jpg')
+st.image(image, caption='schnauzer mini')
+
