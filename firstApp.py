@@ -50,7 +50,7 @@ chart_data = pd.DataFrame(
      np.random.randn(50, 3),
      columns=["a", "b", "c"])
 
-st.bar_chart(df_discrepancy[["Retail_Category","Unders"]])
+st.bar_chart(df_discrepancy.groupby(['Retail_Category']).sum()[['Unders']])
 
 
 
