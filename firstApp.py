@@ -26,7 +26,7 @@ df_discrepancy["Retail_SOHQTY"] = df_discrepancy["Retail_SOHQTY"].fillna(0).asty
 df_discrepancy["Diff"] = df_discrepancy["Retail_CCQTY"] - df_discrepancy["Retail_SOHQTY"]
 df_discrepancy.loc[df_discrepancy["Diff"]<0, "Unders"] = df_discrepancy["Diff"] * (-1)
 df_discrepancy["Unders"] = df_discrepancy["Unders"].fillna(0).astype(int)
-df_discrepancy.rename(columns={"Retail_Product_Level1Name":"Retail_Category"})
+df_discrepancy=df_discrepancy.rename(columns={"Retail_Product_Level1Name":"Retail_Category"})
 
 st.title ('My First App')
 st.subheader('Data Set')
