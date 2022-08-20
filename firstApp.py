@@ -46,7 +46,7 @@ col3.metric(label="Unders", value= df_discrepancy["Unders"].sum() )
 st.markdown('-----')
 
 chart_data = pd.DataFrame(
-     np.random.randn(50, 3),
+     (3, 4,5),
      columns=["a", "b", "c"])
 
 st.bar_chart(chart_data)
