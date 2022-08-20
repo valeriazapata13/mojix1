@@ -55,7 +55,7 @@ import numpy as np
 
 dfc=df_discrepancy.groupby(['Retail_Category']).sum()[['Unders']]
 fig, ax = plt.subplots()
-ax.bar(dfc['Retail_Category'],df['Unders'])
+ax.bar(dfc,'Retail_Category','Unders')
 
 st.pyplot(fig)
 
