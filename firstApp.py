@@ -48,13 +48,27 @@ st.markdown('-----')
 
 st.subheader('Requested Products per Category')
 
-st.bar_chart(df_discrepancy.groupby(['Retail_Category']).sum()[['Unders']])
+#st.bar_chart(df_discrepancy.groupby(['Retail_Category']).sum()[['Unders']])
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+dfc=df_discrepancy.groupby(['Retail_Category']).sum()[['Unders']]
+fig, ax = plt.subplots()
+ax.pie(dfc)
+
+st.pyplot(fig)
+
+
 
 st.markdown('-----')
 st.subheader('Top 10 most requested Products')
+
 dfd=df_discrepancy.groupby(['Retail_Product_Name']).sum()[['Retail_CCQTY']].sort_values('Retail_CCQTY',ascending=False)
 dfd= dfd.head(10)
 st.bar_chart(dfd)
+
+
 st.markdown('-----')
 
 
