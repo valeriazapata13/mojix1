@@ -1,10 +1,12 @@
 import streamlit as st
 import pandas as pd
-#from pandasql import sqldf
+
+
+###### FUENTE DE DATOS ######
 df_expected = pd.read_csv("https://storage.googleapis.com/mojix-devops-wildfire-bucket/analytics/bootcamp_2_0/Bootcamp_DataAnalysis_Expected.csv", encoding="latin-1", dtype=str)
 df_counted = pd.read_csv("https://storage.googleapis.com/mojix-devops-wildfire-bucket/analytics/bootcamp_2_0/Bootcamp_DataAnalysis_Counted.csv", encoding="latin-1", dtype=str)
 
-
+###### LIMPIEZA DE DATOS ######
 df_counted = df_counted.drop_duplicates("RFID")
 df_B = df_counted.groupby("Retail_Product_SKU").count()[["RFID"]].reset_index().rename(columns={"RFID":"Retail_CCQTY"})
 
@@ -28,8 +30,13 @@ df_discrepancy.loc[df_discrepancy["Diff"]<0, "Unders"] = df_discrepancy["Diff"] 
 df_discrepancy["Unders"] = df_discrepancy["Unders"].fillna(0).astype(int)
 df_discrepancy=df_discrepancy.rename(columns={"Retail_Product_Level1Name":"Retail_Category"})
 
+
+###### DISEÑO DE APP ######
 st.title ('My First App')
 st.subheader('Data Set')
 st.markdown('-----')
 st.dataframe(df_discrepancy)
+st.markdown('-----')
+
+st.metric(label="Retail_SOHQTY", value=df[Retail_SOHQTY].sum)
 
