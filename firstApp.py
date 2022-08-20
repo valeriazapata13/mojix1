@@ -45,17 +45,17 @@ col3.metric(label="Unders", value= df_discrepancy["Unders"].sum() )
 
 st.markdown('-----')
 
-import numpy as np
-chart_data = pd.DataFrame(
-     np.random.randn(50, 3),
-     columns=["a", "b", "c"])
+
+st.subheader('Requested Products per Category')
 
 st.bar_chart(df_discrepancy.groupby(['Retail_Category']).sum()[['Unders']])
 
+st.markdown('-----')
+st.subheader('Top 10 most requested Products')
 dfd=df_discrepancy.groupby(['Retail_Product_Name']).sum()[['Retail_CCQTY']].sort_values('Retail_CCQTY',ascending=False)
-dfd= dfd.head(5)
+dfd= dfd.head(10)
 st.bar_chart(dfd)
-
+st.markdown('-----')
 
 
 
