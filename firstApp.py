@@ -24,5 +24,13 @@ df_A = df_expected[my_cols_selected_A]
 
 
 df_discrepancy = pd.merge(df_A, df_B, how="outer", left_on="Retail_Product_SKU", right_on="Retail_Product_SKU", indicator=True)
-df_discrepancy.head()
-st.write("hello there!")
+df_discrepancy['Retail_CCQTY'] = df_discrepancy['Retail_CCQTY'].fillna(0)
+df_discrepancy["Retail_CCQTY"] = df_discrepancy["Retail_CCQTY"].astype(int)
+df_discrepancy["Retail_SOHQTY"] = df_discrepancy["Retail_SOHQTY"].fillna(0).astype(int)
+df_discrepancy["Diff"] = df_discrepancy["Retail_CCQTY"] - df_discrepancy["Retail_SOHQTY"]
+df_discrepancy.loc[df_discrepancy["Diff"]<0, "Unders"] = df_discrepancy["Diff"] * (-1)
+df_discrepancy["Unders"] = df_discrepancy["Unders"].fillna(0).astype(int)
+
+
+st.title ('My First App')
+st.dataframe(df_discrepancy)
