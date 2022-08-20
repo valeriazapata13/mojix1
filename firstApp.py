@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-
+import seaborn as sns
 
 ###### FUENTE DE DATOS ######
 df_expected = pd.read_csv("https://storage.googleapis.com/mojix-devops-wildfire-bucket/analytics/bootcamp_2_0/Bootcamp_DataAnalysis_Expected.csv", encoding="latin-1", dtype=str)
@@ -42,5 +42,13 @@ col1, col2 ,col3 = st.columns(3)
 col1.metric(label="Retail_SOHQTY", value= df_discrepancy["Retail_SOHQTY"].sum() )
 col2.metric(label="Retail_CCQTY", value= df_discrepancy["Retail_CCQTY"].sum() )
 col3.metric(label="Unders", value= df_discrepancy["Unders"].sum() )
+
+st.markdown('-----')
+
+fig1=plt.figure()
+sns.countplot(x='Unders',data=df_discrepancy)
+st.pyplot(fig1)
+
+
 
 
