@@ -1,4 +1,4 @@
-
+import streamlit as st
 import pandas as pd
 #from pandasql import sqldf
 df_expected = pd.read_csv("https://storage.googleapis.com/mojix-devops-wildfire-bucket/analytics/bootcamp_2_0/Bootcamp_DataAnalysis_Expected.csv", encoding="latin-1", dtype=str)
@@ -25,3 +25,4 @@ df_A = df_expected[my_cols_selected_A]
 
 df_discrepancy = pd.merge(df_A, df_B, how="outer", left_on="Retail_Product_SKU", right_on="Retail_Product_SKU", indicator=True)
 df_discrepancy.head()
+st.write('The current color is', color)
