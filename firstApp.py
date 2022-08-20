@@ -45,14 +45,7 @@ col3.metric(label="Unders", value= df_discrepancy["Unders"].sum() )
 
 st.markdown('-----')
 
-import seaborn as sns
-
-val_sum  = df_discrepancy["Unders"].sum()
-fig = plt.figure(figsize=(10,5))
-sns.barplot(val_sum.index, val_sum.values, alpha=0.8)
-fig.title('Under per Category')
-
-st.pyplot(fig)
+st.bar_chart(data=df_discrepancy, *, x=df_discrepancy["Retail_Category"], y=None, width=0, height=0, use_container_width=True)
 
 
 
