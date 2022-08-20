@@ -45,10 +45,7 @@ col3.metric(label="Unders", value= df_discrepancy["Unders"].sum() )
 
 st.markdown('-----')
 
-fig1=plt.figure()
-sns.countplot(x='Unders',data=df_discrepancy)
-st.pyplot(fig1)
-
+st.bar_chart(df_discrepancy.groupby("Retail_Product_Level1Name").sum()[["Unders"]].reset_index())
 
 
 
