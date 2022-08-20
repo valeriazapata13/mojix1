@@ -1,4 +1,4 @@
-import pandasql as pandasql
+
 import pandas as pd
 #from pandasql import sqldf
 df_expected = pd.read_csv("https://storage.googleapis.com/mojix-devops-wildfire-bucket/analytics/bootcamp_2_0/Bootcamp_DataAnalysis_Expected.csv", encoding="latin-1", dtype=str)
