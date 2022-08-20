@@ -52,7 +52,9 @@ chart_data = pd.DataFrame(
 
 st.bar_chart(df_discrepancy.groupby(['Retail_Category']).sum()[['Unders']])
 
-st.bar_chart(df_discrepancy.groupby(['Retail_Product_Name']).sum()[['Retail_CCQTY']])
+dfd=df_discrepancy.groupby(['Retail_Product_Name']).sum()[['Retail_CCQTY']]
+
+st.bar_chart(dfd)
 
 
 
