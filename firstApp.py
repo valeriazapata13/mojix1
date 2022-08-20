@@ -38,5 +38,9 @@ st.markdown('-----')
 st.dataframe(df_discrepancy)
 st.markdown('-----')
 
-st.metric(label="Retail_SOHQTY", value= df_discrepancy["Retail_SOHQTY"].sum() )
+col1, col2 ,col3 = st.columns(3)
+col1.metric(label="Retail_SOHQTY", value= df_discrepancy["Retail_SOHQTY"].sum() )
+col2.metric(label="Retail_CCQTY", value= df_discrepancy["Retail_CCQTY"].sum() )
+col3.metric(label="Unders", value= df_discrepancy["Unders"].sum() )
+
 
