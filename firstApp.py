@@ -54,7 +54,7 @@ st.markdown('-----')
 st.subheader('Top 10 most requested Products')
 dfd=df_discrepancy.groupby(['Retail_Product_Name']).sum()[['Retail_CCQTY']].sort_values('Retail_CCQTY',ascending=False)
 dfd= dfd.head(10)
-st.bar_chart(dfd,use_container_width=True)
+st.bar_chart(dfd,color='#00565D')
 st.markdown('-----')
 
 
