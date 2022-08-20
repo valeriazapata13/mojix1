@@ -53,10 +53,12 @@ st.subheader('Requested Products per Category')
 import matplotlib.pyplot as plt
 import numpy as np
 
-dfc=df_discrepancy.groupby(['Retail_Category']).sum()[['Unders']]
-#dfc=df_discrepancy['Retail_Category']
+#dfc=df_discrepancy.groupby(['Retail_Category']).sum()[['Unders']]
+dfc=df_discrepancy.groupby(['Retail_Category']).sum()[['Unders']].reset_index()
+dfca=dfc['Retail_Category']
+dfcb=dfc['Unders']
 fig, ax = plt.subplots()
-ax.pie(dfc['Unders'],labels=dfc['Retail_Category'])
+ax.pie(dfca,labels=dfcb)
 
 st.pyplot(fig)
 
