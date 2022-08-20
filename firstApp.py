@@ -57,8 +57,9 @@ import numpy as np
 dfc=df_discrepancy.groupby(['Retail_Category']).sum()[['Unders']].reset_index()
 dfca=dfc['Retail_Category']
 dfcb=dfc['Unders']
+colores = ["#be2596","#96be25","#2596be"]
 fig, ax = plt.subplots()
-ax.pie(dfcb,labels=dfca)
+ax.pie(dfcb,labels=dfca,colors=colores)
 
 st.pyplot(fig)
 
