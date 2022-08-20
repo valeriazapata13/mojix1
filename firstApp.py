@@ -58,7 +58,7 @@ dfc=df_discrepancy.groupby(['Retail_Category']).sum()[['Unders']].reset_index()
 dfca=dfc['Retail_Category']
 dfcb=dfc['Unders']
 fig, ax = plt.subplots()
-ax.pie(dfca,labels=dfcb)
+ax.pie(dfcb,labels=dfca)
 
 st.pyplot(fig)
 
