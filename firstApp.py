@@ -25,4 +25,4 @@ df_A = df_expected[my_cols_selected_A]
 
 df_discrepancy = pd.merge(df_A, df_B, how="outer", left_on="Retail_Product_SKU", right_on="Retail_Product_SKU", indicator=True)
 df_discrepancy.head()
-st.write('The current color is', color)
+st.write("hello there!")
