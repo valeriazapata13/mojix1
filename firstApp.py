@@ -52,6 +52,10 @@ chart_data = pd.DataFrame(
 
 st.bar_chart(df_discrepancy.groupby(['Retail_Category']).sum()[['Unders']])
 
+[theme]
+base="light"
+primaryColor="purple"
+
 
 
 
