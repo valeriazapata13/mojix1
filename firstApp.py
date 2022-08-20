@@ -8,13 +8,9 @@ df_counted = pd.read_csv("https://storage.googleapis.com/mojix-devops-wildfire-b
 df_counted = df_counted.drop_duplicates("RFID")
 df_B = df_counted.groupby("Retail_Product_SKU").count()[["RFID"]].reset_index().rename(columns={"RFID":"Retail_CCQTY"})
 
-my_cols_selected_A= ["Retail_Product_Color",
-"Retail_Product_Level1",
-"Retail_Product_Level1Name",
-"Retail_Product_Level2Name",
-"Retail_Product_Level3Name",
-"Retail_Product_Level4Name",
+my_cols_selected_A= ["Retail_Product_Level1Name",
 "Retail_Product_Name",
+"Retail_Product_Color",
 "Retail_Product_SKU",
 "Retail_Product_Size",
 "Retail_Product_Style",
